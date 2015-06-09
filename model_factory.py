@@ -254,7 +254,7 @@ def make_tax_function(parameters):
                 return 0
             if resource is Resources.natural_gas:
                 carbon_tax = 2.409 # 2409 SEK / 1000 m^3 as of 2015-01-01
-                energy_tax = 939 # 939 SEK / 1000 m^3 as of 2015-01-01
+                energy_tax = 0.939 # 939 SEK / 1000 m^3 as of 2015-01-01
                 if kwargs['chp']:
                     carbon_tax *= 0 # As of 2013
                     energy_tax *= 0.3 # As of 2013
