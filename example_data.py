@@ -29,7 +29,7 @@ def make_data():
         .to_csv('data/heat_history.csv'))
 
     (pd.Series(
-        data=280 + 0 * annual_cosine, index=index, name='Power price')
+        data=180 + 0 * annual_cosine, index=index, name='Power price')
         .to_csv('data/power_price.csv', header=True))
 
     (pd.Series(
