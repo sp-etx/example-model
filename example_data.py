@@ -24,12 +24,12 @@ def make_data():
     (pd.DataFrame
         .from_dict({
             'Renova CHP': pd.Series(data=150 + 40 * annual_cosine, index=index),
-            'Other': pd.Series(data=150 + 1200 * annual_cosine, index=index)
+            'Other': pd.Series(data=10 + 1200 * annual_cosine, index=index)
             })
         .to_csv('data/heat_history.csv'))
 
     (pd.Series(
-        data=180 + 0 * annual_cosine, index=index, name='Power price')
+        data=280 + 0 * annual_cosine, index=index, name='Power price')
         .to_csv('data/power_price.csv', header=True))
 
     (pd.Series(

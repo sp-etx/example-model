@@ -42,7 +42,6 @@ def get_power_price(time_unit):
 
 
 _DEFAULT_PARAMETERS = {
-    't0': pd.Timestamp('2013-01-01'),
     'time_unit' : pd.Timedelta('1h'), # Time unit
     'step' : pd.Timedelta('6h'), # Time span to lock in each step
     'horizon' : pd.Timedelta('72h'), # Planning horizon
@@ -70,7 +69,6 @@ def make_model(parameters, seed=None):
     parameters['prices'][Resources.power] = get_power_price(parameters['time_unit'])
 
     model = fs.models.MyopicDispatchModel(
-        t0=parameters['t0'],
         horizon=int(parameters['horizon'] / parameters['time_unit']),
         step=int(parameters['step'] / parameters['time_unit']))
 
@@ -217,7 +215,7 @@ def make_parts(parameters, uncertain):
     parts.add(
         Boiler(
             name='Tynnered boiler',
-            eta=uncertain.relative(0.9, 0.05),
+            eta=uncertain.relative(0.89, 0.03),
             Fmax=uncertain.relative(22, 0.2) / hour,
             fuel=Resources.heating_oil,
             taxation=taxation))
@@ -225,8 +223,8 @@ def make_parts(parameters, uncertain):
     parts.add(
         Boiler(
             name='Angered boiler',
-            eta=uncertain.relative(0.9, 0.05),
-            Fmax=uncertain.relative(137, 0.1) / hour,
+            eta=uncertain.relative(0.77, 0.05),
+            Fmax=uncertain.relative(135, 0.05) / hour,
             fuel=Resources.bio_oil,
             taxation=taxation))
 
