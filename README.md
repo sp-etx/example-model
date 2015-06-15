@@ -2,6 +2,12 @@
 
 An example Friendly Sam model of Gothenburg's power and district heating system.
 
+## Example results
+
+https://github.com/sp-etx/example-model/blob/master/example_run.ipynb
+
+## Run it yourself
+
 1. Install requirements:
 
     ```
