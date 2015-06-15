@@ -334,27 +334,3 @@ class DummyRandomizer(object):
 
     def term(self, *args, **kwargs):
         return 0
-
-#if __name__ == '__main__':
-import dill
-def run():
-    parameters = get_parameters()
-    m = make_model(parameters, seed=1)
-    m.solver = fs.get_solver()
-    while m.time <= pd.Timestamp('2013-01-15'):
-        print(m.time)
-        m.advance()
-        # dill.dump(m, open('aoeu','wb'))
-        # m = dill.load(open('aoeu','rb'))
-    #m.advance()
-    # for p in m.descendants:
-    #     logger.info(p)
-    #     for r in p.resources:
-    #         for k in ('production', 'consumption', 'accumulation'):
-    #             t_m_1 = p.step_time(m.t, -1)
-    #             attr = getattr(p, k)
-    #             if r in attr:
-    #                 logger.info('\t{}[{}] ({}): {}'.format(k, r, t_m_1, float(attr[r](t_m_1))))
-
-if __name__ == '__main__':
-    run()
