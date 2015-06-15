@@ -78,7 +78,9 @@ def make_model(parameters, seed=None):
     # No explicit distribution channels in this model. Just create a cluster for each resource.
     for r in Resources:
         cluster = fs.Cluster(resource=r, name='{} cluster'.format(r))
-        cluster.add_parts(*(p for p in parts if r in p.resources))
+        for p in parts:
+            if r in p.resources:
+                cluster.add_part(p)
         cluster.cost = lambda t: 0
         model.add_part(cluster)
 
