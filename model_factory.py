@@ -249,7 +249,7 @@ def make_tax_function(parameters):
                 energy_tax = 294 # SEK / MWh as of 2015-01-01, most Swedish municipalities
                 cert = parameters['green_certificates']
                 cert_cost = cert['price'] * cert['quota']
-                return energy_tax * cert_cost
+                return energy_tax + cert_cost
             if is_biofuel(resource):
                 return 0
             if resource is Resources.natural_gas:
