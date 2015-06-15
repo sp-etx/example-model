@@ -24,7 +24,7 @@ def make_data():
     (pd.DataFrame
         .from_dict({
             'Renova CHP': pd.Series(data=150 + 40 * annual_cosine, index=index),
-            'Other': pd.Series(data=10 + 1200 * annual_cosine, index=index)
+            'Other': pd.Series(data=10 + 1000 * annual_cosine, index=index)
             })
         .to_csv('data/heat_history.csv'))
 
